@@ -1,18 +1,35 @@
+//
 fun multiply(a: Int, b: Double) = a * b
-
-
 
 fun total(a: Int, b: Double, c: Int, d: Double) = (a * b) + (c * d)
 
-
 fun main(args: Array<String>) {
     var deliver: String = "3-5" //business days
+    var stockApples = Integer.valueOf(19)
+    var stockOranges = Integer.valueOf(28)
+
     println("How many apples do you need?")
     var totalApples = Integer.valueOf(readLine())
+
+    if(totalApples > stockApples){
+        println("We do not have enough stock.")
+        println("We only have $stockApples apples, how many apples do you need?")
+        totalApples = Integer.valueOf(readLine())
+    }
     var apples = totalApples
+
+
     println("How many oranges do you need?")
     var totalOranges = Integer.valueOf(readLine())
+
+    if(totalOranges > stockOranges){
+        println("We do not have enough stock.")
+        println("We only have $stockOranges oranges, how many oranges do you need?")
+        totalOranges = Integer.valueOf(readLine())
+    }
+
     var oranges = totalOranges
+
     println("You want $totalApples apples and $totalOranges oranges")
 
     if (apples > 1 && apples % 2 == 0){
@@ -27,29 +44,19 @@ fun main(args: Array<String>) {
     if (oranges >= 3 && oranges % 3 == 0){
         oranges /= 3
         oranges *= 2
-        //what about the rest if you bought 10 should be 6+1 = 7
-        //works only at exact
-        //needs exception when its more than a multiple of 3 and there is room to use discount
     }
     else if (oranges >= 3 && oranges % 3 == 1){
         oranges -= 1
-
         oranges /= 3
         oranges *= 2
-
         oranges += 1
     }
     else if (oranges >= 3 && oranges % 3 == 2){
         oranges -= 2
-
         oranges /= 3
         oranges *= 2
-
         oranges += 2
     }
-
-//    println("$apples")
-//    println("$oranges")
 
 
     val costApples = 0.60
