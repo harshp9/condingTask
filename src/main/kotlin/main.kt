@@ -1,37 +1,40 @@
-//
+//function used to multiply total cost per fruit
 fun multiply(a: Int, b: Double) = a * b
 
+//function used to calculate total of both fruits
 fun total(a: Int, b: Double, c: Int, d: Double) = (a * b) + (c * d)
 
+//main function
 fun main(args: Array<String>) {
-    var deliver: String = "3-5" //business days
-    var stockApples = Integer.valueOf(19)
-    var stockOranges = Integer.valueOf(28)
+    var deliver: String = "3-5" //hard coded business days
+    var stockApples = Integer.valueOf(19) //hard coded stock value for total Apples available
+    var stockOranges = Integer.valueOf(28) //hard coded stock value for total Oranges available
+
 
     println("How many apples do you need?")
-    var totalApples = Integer.valueOf(readLine())
+    var totalApples = Integer.valueOf(readLine()) //customer input for number of apples
 
     if(totalApples > stockApples){
         println("We do not have enough stock.")
         println("We only have $stockApples apples, how many apples do you need?")
-        totalApples = Integer.valueOf(readLine())
+        totalApples = Integer.valueOf(readLine()) //customer input for number of apples within stock
     }
-    var apples = totalApples
+    var apples = totalApples //variable used to calculate discounts
 
 
     println("How many oranges do you need?")
-    var totalOranges = Integer.valueOf(readLine())
+    var totalOranges = Integer.valueOf(readLine()) //customer input for number of oranges
 
     if(totalOranges > stockOranges){
         println("We do not have enough stock.")
         println("We only have $stockOranges oranges, how many oranges do you need?")
-        totalOranges = Integer.valueOf(readLine())
+        totalOranges = Integer.valueOf(readLine()) //customer input for number of oranges within stock
     }
+    var oranges = totalOranges //variable used to calculate discounts
 
-    var oranges = totalOranges
+    println("You want $totalApples apples and $totalOranges oranges") //confirmation print for total number of fruits
 
-    println("You want $totalApples apples and $totalOranges oranges")
-
+    //checks if you have multiples of 2 for buy one get one free offer
     if (apples > 1 && apples % 2 == 0){
             apples /= 2
     }
@@ -41,6 +44,7 @@ fun main(args: Array<String>) {
         apples += 1
     }
 
+    //checks if you have at least 3 oranges to give you 3 for the price of 2 offer
     if (oranges >= 3 && oranges % 3 == 0){
         oranges /= 3
         oranges *= 2
@@ -59,12 +63,12 @@ fun main(args: Array<String>) {
     }
 
 
-    val costApples = 0.60
-    val costOranges = 0.25
+    val costApples = 0.60 //hard coded price value for cost per Apple
+    val costOranges = 0.25 //hard coded price value for cost per Orange
 
     println("Cost of your Apples is : $${multiply(apples, costApples)}")
     println("Cost of your Oranges is : $${multiply(oranges, costOranges)}")
     println("Your total cost is : $${total(apples, costApples, oranges, costOranges)}")
+    //Prints confirmation of your total number of fruits, cost, and estimated delivery time.
     println("Your order for $totalApples apples and $totalOranges oranges with total cost of $${total(apples, costApples, oranges, costOranges)} has been placed and should deliver in $deliver business days.")
-
 }
