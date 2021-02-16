@@ -1,3 +1,6 @@
+//This is a command line application that lets the user input the various needs and the application
+// can calculate the total for you with the various discounts offered.
+
 //function used to multiply total cost per fruit
 fun multiply(a: Int, b: Double) = a * b
 
