@@ -6,11 +6,14 @@ fun total(a: Int, b: Double, c: Int, d: Double) = (a * b) + (c * d)
 
 
 fun main(args: Array<String>) {
+    var deliver: String = "3-5" //business days
     println("How many apples do you need?")
-    var apples = Integer.valueOf(readLine())
+    var totalApples = Integer.valueOf(readLine())
+    var apples = totalApples
     println("How many oranges do you need?")
-    var oranges = Integer.valueOf(readLine())
-    println("You want $apples apples and $oranges oranges")
+    var totalOranges = Integer.valueOf(readLine())
+    var oranges = totalOranges
+    println("You want $totalApples apples and $totalOranges oranges")
 
     if (apples > 1 && apples % 2 == 0){
             apples /= 2
@@ -45,8 +48,8 @@ fun main(args: Array<String>) {
         oranges += 2
     }
 
-    println("$apples")
-    println("$oranges")
+//    println("$apples")
+//    println("$oranges")
 
 
     val costApples = 0.60
@@ -55,5 +58,6 @@ fun main(args: Array<String>) {
     println("Cost of your Apples is : $${multiply(apples, costApples)}")
     println("Cost of your Oranges is : $${multiply(oranges, costOranges)}")
     println("Your total cost is : $${total(apples, costApples, oranges, costOranges)}")
+    println("Your order for $totalApples apples and $totalOranges oranges with total cost of $${total(apples, costApples, oranges, costOranges)} has been placed and should deliver in $deliver business days.")
 
 }
