@@ -71,7 +71,10 @@ fun main(args: Array<String>) {
 
     println("Cost of your Apples is : $${multiply(apples, costApples)}")
     println("Cost of your Oranges is : $${multiply(oranges, costOranges)}")
+    var totalCostApples = multiply(apples, costApples)
+    var totalCostOranges = multiply(oranges, costOranges)
     println("Your total cost is : $${total(apples, costApples, oranges, costOranges)}")
     //Prints confirmation of your total number of fruits, cost, and estimated delivery time.
     println("Your order for $totalApples apples and $totalOranges oranges with total cost of $${total(apples, costApples, oranges, costOranges)} has been placed and should deliver in $deliver business days.")
+    var finalTotal = total(apples, costApples, oranges, costOranges)
 }
